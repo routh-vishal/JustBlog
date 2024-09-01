@@ -1,0 +1,25 @@
+<%-include("partials/header.ejs") %>  
+
+<h2>Edit the post</h2>
+
+<form action="/editPost" method="POST">
+    <div class="input-container">
+        <div class="left-input-container">
+
+            <input style="display: none;" type="text" name="PostId" value=<%= postkey %> readonly>
+
+            <input type="text" name="author" placeholder="Author Name" value=<%= author %> autocomplete="off" required>
+        
+            <input type="text" name="title" placeholder="Blog Title" value=<%= title %> required>
+    
+            <input class="submitButton" type="submit" value="Edit The Blog">
+
+        </div>
+        <div class="right-input-container">
+            <textarea name="content" cols="40" rows="5" placeholder="Write your Blog here" required><%= content %></textarea>
+            <input class="secondSubmitButton" type="submit" value="Edit the Blog">
+        </div>
+    </div>
+</form>
+
+<%-include("partials/footer.ejs") %>    

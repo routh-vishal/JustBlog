@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") %>
+
+<form action="/submitPost" method="POST">
+    <div class="input-container">
+        <div class="left-input-container">
+            <input type="text" name="author" placeholder="Author Name" autocomplete="off" required>
+        
+            <input type="text" name="title" placeholder="Blog Title" required>
+    
+            <input class="submitButton" type="submit" value="Submit the Blog">
+        </div>
+        <div class="right-input-container">
+            <textarea name="content" cols="40" rows="5" placeholder="Write your Blog here" required></textarea>
+
+            <input class="secondSubmitButton" type="submit" value="Submit the Blog">
+        </div>
+    </div>
+
+</form>
+
+<%- include("partials/footer.ejs") %>

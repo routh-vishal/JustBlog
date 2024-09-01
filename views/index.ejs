@@ -1,0 +1,50 @@
+<%-include("partials/header.ejs") %>  
+
+
+<div class="container">
+
+    <div class="left">
+    <h1>Welcome to JustBlog!!</h1>
+
+<div class="homeContent">
+    <p>At JustBlog, we dive deep into a world of insightful articles, creative stories, and engaging content. Whether you're here to stay updated with the latest trends, discover inspiring ideas, or just enjoy some good reads, we have something for everyone.</p>
+</div>
+<div class="latest">
+    <h2>Latest Posts</h2>
+</div>
+<% if(locals.postCnt&&locals.postList){%>
+      
+<% Object.keys(postList).forEach(key => { %>
+
+    <div class="postContainer">
+        <a href="/posts/<%= key.replace('post', '') %>">
+            <p>
+                <span style="margin-right: 10px;">
+                    <%= postList[key][1] %> by <%= postList[key][0] %>
+                </span>
+            </p>
+        </a> 
+        <div class="editdelete">
+            <form action="/edit-post/<%= key.replace('post', '') %>" method="get">
+                <input type="image" src="/images/editing.svg" alt="edit" width="20" height="20">
+            </form>
+
+            <form action="/delete-post/<%= key.replace('post', '') %>" method="get">
+                <input type="image" src="/images/delete.svg" alt="delete" width="20" height="20">
+            </form>
+        </div>
+    </div>
+
+<% }); %>
+
+<% }else{ %>
+    <p>There are no posts available</p>
+<% } %>
+</div>
+<div class="right">
+    <img src="/images/blog.jpg" alt="blog">
+</div>
+</div>
+
+
+<%-include("partials/footer.ejs") %>    
